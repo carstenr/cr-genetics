@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Traveller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body style="background-color: #fff;">
+  <div id="app">
+
+
+    <div class="slide blue white hero" v-show="slide === 1">
+      <div class="headlines">
+        <h1>Schlüpfrige Dienstreisen</h1>
+        <p class="sub">
+          Wie Genetik uns eine schöne Zeit bescheren kann.
+        </p>
+        <p class="small">Carsten Richter, 12.08.2020</p>
+      </div>
+    </div>
+
+
+    <div class="slide" v-show="slide === 2">
+      <h1>Die Welt</h1>
+      <p class="sub">(leicht vereinfacht)</p>
+      <ul>
+        <li>Die Welt ist ein Quadrat voller Städte.</li>
+        <li>Es gibt direkte Wege zwischen den Städten.</li>
+        <li>Unser Held möchte alle Städte einmal besuchen.</li>
+        <li>Er möchte den kürzesten Weg gehen.</li>
+      </ul>
+    </div>
+
+
+    <div class="slide" v-show="slide === 3 || slide === 7">
+      <div class="overlay" style="position: absolute; top: 6vh; left: calc(830px + 10vh); padding: 20px; background-color: #fff; width: 700px;">
+        <p>
+          <button class="btn btn-primary btn-block" v-on:click="nextGen" v-show="slide === 3">So geh er!</button>
+          <button class="btn btn-primary btn-block" v-on:click="simulate" v-show="slide === 7">Simulation starten</button>
+          <button class="btn btn-secondary btn-block" v-on:click="addCity">Stadt hinzufügen</button>
+        </p>
+        <p v-show="slide === 3">
+          <button class="btn btn-secondary btn-block" v-on:click="power*=1000000000" v-if="power < 100001">Upgrade I</button>
+          <button class="btn btn-secondary btn-block" v-on:click="power*=10000000" v-if="power < 1000000000000001 && power > 100001">Upgrade II</button>
+        </p>
+        <p class="mb-0">
+          Städte: {{cityCount}}<br>
+          Wege: {{solutions}}<br>
+          Time to compute: <b>{{ttc}}</b><br>
+          Länge: {{fittestFitness}} km
+        </p>
+        <div class="leaderboard" v-if="slide === 7">
+          <h3 class="mt-2">Top 10</h3>
+          <ol class="mb-0 population" v-if="generation > 1">
+            <li v-for="(route, index) in population" v-if="index < 10">{{route}}</li>
+          </ol>
+          <div v-else>
+            -
+          </div>
+        </div>
+      </div>
+      <canvas id="c" style="background-color: #00bcff" width="800" height="800" v-on:click="reset"></canvas>
+    </div>
+
+
+    <div class="slide" v-show="slide === 4">
+      <h1>Lösungsansatz</h1>
+      <p class="sub">Bevölkern!</p>
+      <div class="row">
+        <div class="col-md-6">
+          <ul>
+            <li>Wir erschaffen eine Population von Lösungen.</li>
+            <li>Jeder Einwohner ist ein zufälliger Weg.</li>
+            <li>Wir erhalten eine Vielzahl schlechter Wege.</li>
+            <li>Wir können die Länge jeden Weges bestimmen.</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <img src="img/route.jpg" alt="" style="max-width: 100%; margin-top: -22vh; max-height: 95vh;">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="slide" v-show="slide === 5">
+      <h1>Techtelmechtel</h1>
+      <p class="sub">(NSFW)</p>
+      <div class="row">
+        <div class="col-md-7">
+          <ul>
+            <li>Wir geben unseren Einwohnern eine Freizeitbeschäftigung.</li>
+            <li>Jede Generation erzeugt Nachkommen durch Verpaarung.</li>
+            <li>Die erste Hälfte des Weges wird durch die "Mutter" festgelegt, die zweite Hälfte durch den "Vater".</li>
+            <li>Unsere Bevölkerung wächst stark an.</li>
+          </ul>
+        </div>
+        <div class="col-md-5">
+          <img src="img/helix.jpg" alt="" style="max-width: 100%; margin-top: -20vh; max-height: 95vh;">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="slide" v-show="slide === 6">
+      <h1>Natürliche Auslese</h1>
+      <p class="sub">Hunger Games</p>
+      <div class="row">
+        <div class="col-md-6">
+          <ul>
+            <li>Essen (Rechenleistung) in unserer Welt ist beschränkt.</li>
+            <li>Nur die Stärksten (Kürzesten) überleben.</li>
+            <li>Die Größe der Population bleibt auf Dauer konstant.</li>
+            <li>Repeat.</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <img src="img/starve.jpg" alt="" style="max-width: 100%; margin-top: -10vh">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="slide" v-show="slide === 8">
+      <h1>Anwendung</h1>
+      <p class="sub">Genetische Algorithmen</p>
+      <div class="row">
+        <div class="col-md-8">
+          <ul>
+            <li><a href="https://cdn.geekwire.com/wp-content/uploads/2020/04/200401-folding-1260x861.jpg" target="_blank">Protein-Faltung</a></li>
+            <li>Deep Learning</li>
+            <li><a href="https://www.youtube.com/watch?v=kQ2bqz3HPJE&t=70" target="_blank">Roboterdinosaurier!</a></li>
+            <li>Universum</li>
+          </ul>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+
+
+    <div class="logo" v-on:click="nextSlide">
+      <img src="img/logo.jpg" alt="Logo">
+    </div>
+  </div>
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

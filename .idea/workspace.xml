@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2cd41a0d-cac0-4327-87c7-5fc80f84e867" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ProjectId" id="1fuYhYzQDDpm9oiMk3gCl2Fogwz" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/img" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2cd41a0d-cac0-4327-87c7-5fc80f84e867" name="Default Changelist" comment="" />
+      <created>1597069565113</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597069565113</updated>
+      <workItem from="1597069567802" duration="34733000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1790" y="-54" width="1021" height="933" key="search.everywhere.popup" timestamp="1597224417751">
+      <screen x="-2560" y="-367" width="2560" height="1417" />
+    </state>
+    <state x="-1790" y="-54" width="1021" height="933" key="search.everywhere.popup/-2560.-367.2560.1417/0.23.1680.1027/-5120.-367.2560.1417@-2560.-367.2560.1417" timestamp="1597161216340" />
+    <state x="-4350" y="-54" width="1021" height="933" key="search.everywhere.popup/-2560.-367.2560.1417/0.23.1680.1027/-5120.-367.2560.1417@-5120.-367.2560.1417" timestamp="1597161170831" />
+    <state x="-1790" y="-54" width="1021" height="933" key="search.everywhere.popup/-5120.-367.2560.1417/-2560.-367.2560.1417/0.23.1680.1027@-2560.-367.2560.1417" timestamp="1597224417751" />
+    <state x="505" y="250" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1597070022454" />
+  </component>
+</project>
